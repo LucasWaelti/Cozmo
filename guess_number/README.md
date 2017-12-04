@@ -26,7 +26,7 @@ If you don't give any answer quickly enough (after 30 seconds), Cozmo will show 
 At the end of each game, you can press `Enter` to restart a new game or leave by pressing any key followed by `Enter`. 
 
 # The code!
-(guess_number.py)[https://github.com/LucasWaelti/Cozmo/blob/master/guess_number/guess_number.py]
+[guess_number.py](https://github.com/LucasWaelti/Cozmo/blob/master/guess_number/guess_number.py)
 https://github.com/LucasWaelti/Cozmo/blob/master/guess_number/guess_number_anim.py
 
 ## Remarks
