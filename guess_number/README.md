@@ -2,7 +2,7 @@
 With this program, Cozmo will try to guess the number you are thinking about (by default the search range is [0,60]). 
 https://www.youtube.com/watch?v=Oj2uBXrqvrE
 In the video, Cozmo makes guesses in French but the program should work fine for any language implemented in your Cozmo. As you can see, Cozmo takes some time before making its first guess because it is looking for me. Cozmo sees me then before its second guess and faces me. 
-This idea came to me after seeing this post: https://forums.anki.com/t/number-guessing-game/10846 so thank you @Cadwallader01 for the idea!
+This idea came to me after seeing this [post](https://forums.anki.com/t/number-guessing-game/10846), so thank you @Cadwallader01 for the idea!
 In the post above, the user is supposed to guess a number picked by Cozmo. But I think the other way around is also pretty interesting. That's why I imagined this simple algorithm to implement this functionality.
 
 # How it works
