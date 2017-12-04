@@ -1,3 +1,7 @@
+'''
+    Written by: @Luc (https://forums.anki.com/u/Luc/summary)
+'''
+
 import cozmo
 from cozmo.objects import LightCube1Id, LightCube2Id, LightCube3Id
 from cozmo.util import degrees
