@@ -1,4 +1,6 @@
 '''
+    Written by: @Luc (https://forums.anki.com/u/Luc/summary)
+    
     This little program makes Cozmo guess a number between 0 and 60.
     When starting the program, you can specify a new range by typing
     the 2 limit values of the new range, separated by a space. It will
