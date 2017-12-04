@@ -27,7 +27,7 @@ At the end of each game, you can press `Enter` to restart a new game or leave by
 
 # The code!
 [guess_number.py](https://github.com/LucasWaelti/Cozmo/blob/master/guess_number/guess_number.py)
-https://github.com/LucasWaelti/Cozmo/blob/master/guess_number/guess_number_anim.py
+[guess_number_anim.py](https://github.com/LucasWaelti/Cozmo/blob/master/guess_number/guess_number_anim.py)
 
 ## Remarks
 I have tested the code a few times now and it should be robust enough. So if you decide to try it out, hopefully it will work just fine!
