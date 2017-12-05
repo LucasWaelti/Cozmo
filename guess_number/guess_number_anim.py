@@ -17,7 +17,7 @@ def find_face(robot: cozmo.robot.Robot):
         face_to_follow = robot.world.wait_for_observed_face(timeout=5)
     except:
         face_to_follow = None
-    # Stop looking around, a face appeared
+    # Stop looking around
     behavior.stop()
     if(face_to_follow):
         turn_action = robot.turn_towards_face(face_to_follow).wait_for_completed()
