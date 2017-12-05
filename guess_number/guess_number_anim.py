@@ -11,7 +11,6 @@ import numpy as np
 
 def find_face(robot: cozmo.robot.Robot):
     # Look around for a face
-    
     behavior = robot.start_behavior(cozmo.behavior.BehaviorTypes.FindFaces)
     try:
         face_to_follow = robot.world.wait_for_observed_face(timeout=5)
