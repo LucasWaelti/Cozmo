@@ -13,12 +13,10 @@ def find_face(robot: cozmo.robot.Robot):
     # Look around for a face
     
     behavior = robot.start_behavior(cozmo.behavior.BehaviorTypes.FindFaces)
-    face_to_follow = None
-    while(face_to_follow == None):
-        try:
-            face_to_follow = robot.world.wait_for_observed_face(timeout=10)
-        except:
-            break
+    try:
+        face_to_follow = robot.world.wait_for_observed_face(timeout=5)
+    except:
+        face_to_follow = None
     # Stop looking around, a face appeared
     behavior.stop()
     if(face_to_follow):
@@ -26,12 +24,12 @@ def find_face(robot: cozmo.robot.Robot):
 
 ''' -------------------------------------------------------------- '''
 
-def play_animation(robot: cozmo.robot.Robot, anim_trig, body = False):
+def play_animation(robot: cozmo.robot.Robot, anim_trig, body = False, para = False):
     # anim_trig = cozmo.anim.Triggers."Name of trigger" (this is an object)
     # Refer to "http://cozmosdk.anki.com/docs/generated/cozmo.anim.html#cozmo.anim.Triggers" for animations' triggers
     # Refer to "http://cozmosdk.anki.com/docs/generated/cozmo.robot.html#cozmo.robot.Robot.play_anim_trigger" for playing the animation
 
-    robot.play_anim_trigger(anim_trig,loop_count = 1, in_parallel = False,
+    robot.play_anim_trigger(anim_trig,loop_count = 1, in_parallel = para,
                             num_retries = 0, use_lift_safe = False,
                             ignore_body_track = body, ignore_head_track=False,
                             ignore_lift_track=False).wait_for_completed()
@@ -47,7 +45,7 @@ def hesitate_short(robot: cozmo.robot.Robot):
 
 def hesitate(robot: cozmo.robot.Robot):
     decide = np.random.random()
-    if(decide > 0.6):
+    if(decide > 0.5):
         hesitate_long(robot)
     else:
         hesitate_short(robot)
@@ -80,7 +78,7 @@ def wiggle(robot: cozmo.robot.Robot):
 
 def success(robot: cozmo.robot.Robot):
     decide = np.random.random()
-    if(decide > 0.6):
+    if(decide > 0.4):
         excited(robot)
     else:
         wiggle(robot)

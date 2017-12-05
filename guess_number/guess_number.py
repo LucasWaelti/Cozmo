@@ -1,8 +1,8 @@
 '''
     Written by: @Luc (https://forums.anki.com/u/Luc/summary)
-    
+
     This little program makes Cozmo guess a number between 0 and 60.
-    When starting the program, you can specify a new range by typing
+    After initialising the cubes, you can specify a new range by typing
     the 2 limit values of the new range, separated by a space. It will
     be checked wether the input is valid or not and the range will be
     asked again if an error is detected. If you want to use the default
@@ -33,7 +33,6 @@ import cozmo
 
 import numpy as np
 import time
-import sys  # Only used to flush stdout buffer
 
 import guess_number_anim as anim
 
@@ -173,7 +172,6 @@ def cozmo_program(c_robot: cozmo.robot.Robot):
         reset_memory()
         error_detected = False
 
-        sys.stdout.flush()
         again = input('Press Enter to restart a game or any key followed by Enter to exit: ')
         if(again != ''):
             break
