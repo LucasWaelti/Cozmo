@@ -1,5 +1,5 @@
 # What it is about
-With this [program](# The code!), Cozmo will try to guess the number you are thinking about (by default the search range is [0,60]). Without further ado, here is a video showing how it works (**please enable the subtitles in the video for more info**):
+With this program, Cozmo will try to guess the number you are thinking about (by default the search range is [0,60]). Without further ado, here is a video showing how it works (**please enable the subtitles in the video for more info**):
 https://www.youtube.com/watch?v=Oj2uBXrqvrE
 In the video, Cozmo makes guesses in French but the program should work fine for any language implemented in your Cozmo. 
 
