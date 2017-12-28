@@ -1,5 +1,5 @@
 # Cozmo Self Docking on Charger
-This script allows Cozmo to autonomously find its charger, drive towards it and then maneuver to get onto it. 
+This script allows Cozmo to autonomously find its charger, drive towards it and then maneuver to get onto it **without any further help or special marker**. 
 Some custom approach method had to be implemented as the default approach functions provided by Anki do not offer a sufficient precision. 
 
 ## Error Detection
