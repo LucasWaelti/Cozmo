@@ -7,5 +7,5 @@ Different strategies were implemented to detect if Cozmo is succeeding in its ta
 This task is not easy and is prone to errors, that can occur at different levels. The error handling is based on timeouts and unexpected 
 positions of the robot to determine if the whole procedure has to be aborted and restarted or not. 
 
-## TODO:
+### TODO:
 The cubes clean up is still a work in progress. It is roughly half way implemented. 
