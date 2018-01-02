@@ -1,4 +1,3 @@
-# PATH to the file: C:\Users\Lucas Waelti\Documents\Cozmo\self_docking
 '''
     Written by @Luc, https://forums.anki.com/u/Luc/activity
 
@@ -492,8 +491,6 @@ def init_robot(cozmo_robot: cozmo.robot.Robot):
 
 def execute_procedure():
     low_battery = check_battery()
-    # HACK HACK HACK
-    #low_battery = 1
     if not low_battery:
         clean_up_cubes()
     get_on_charger()
