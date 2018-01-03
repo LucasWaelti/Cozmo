@@ -5,7 +5,9 @@ This program enables Cozmo to drive off its charger, collect its cubes by placin
 Cozmo should be on its charger when starting (but it will work otherwise too). The cubes must not be stacked or rolled and should be located somewhere in front of the charger. 
 
 This video demonstrates how things work: 
+
 https://youtu.be/xfAxPHdetH0
+
 The video is sped up 4 times and there are therefore no sound. 
 
 ## Error Detection
