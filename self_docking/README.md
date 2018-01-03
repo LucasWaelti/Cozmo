@@ -4,3 +4,9 @@ This program enables Cozmo to drive off its charger, collect its cubes by placin
 ## Error Detection
 Different strategies were implemented to detect if Cozmo is succeeding in its task or if a problem occured while running the program. This task is not easy and is prone to errors, that can occur at different levels. The error handling is based on timeouts and unexpected 
 positions of the robot as well as action failures to determine if the current process has to be aborted/restarted or not. 
+
+## Improvements
+- Support already stacked or rolled cubes when cleaning up. 
+- Stack cubes as a pyramid instead of current configuration. 
+- Detect if backup_onto_charger() has succeeded (not possible?).
+- Speed up some processes. 
