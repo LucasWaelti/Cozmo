@@ -8,11 +8,14 @@
     It is possible that Cozmo does not find a cube or its charger, 
     so it will ask for help if needed. Just place the required object 
     or Cozmo in a position where Cozmo can keep working and let it finish its job!
+    Please note that the program can sometimes produce a false positiv. Cozmo
+    will think it reached the charger's contacts even if it did not reach them. 
 
 	TODO (improvements): 
 	- Support already stacked or rolled cubes when cleaning up. 
 	- Stack cubes as a pyramid instead of current configuration. 
 	- Detect if backup_onto_charger() has succeeded (not possible?).
+	- Speed up some processes. 
 '''
 
 import cozmo
@@ -25,9 +28,9 @@ import math
 # Choose on which side of the charger (when facing it),
 # Cozmo should put its cubes.
 # SIDE = 1 (left), SIDE = -1 (right)
-SIDE = 1
+SIDE = -1
 
-# Pitch value when head is horizonal (angle = 0)
+# Pitch value when head is horizonal, calculated later.
 pitch_threshold = 0
 
 # Define how many search cycles must be engaged (5 sec each) while looking for cubes.
@@ -92,7 +95,6 @@ def look_for_next_cube():
             robot.say_text('Cube?',duration_scalar=0.5).wait_for_completed()
         else:
             # A cube was seen but we have to know if it has to be moved
-            #print(seen_cube)
             if(len(cubeIDs) == 0):
                 cubeIDs.append(seen_cube.object_id)
                 cubes.append(seen_cube)
@@ -277,6 +279,9 @@ def disp_coord(charger: cozmo.objects.Charger):
 
 PI = 3.14159265359
 def clip_angle(angle=3.1415):
+	# Allow Cozmo to turn the least possible. Without it, Cozmo could
+	# spin on itself several times or turn for instance -350 degrees
+	# instead of 10 degrees. 
     global PI
 
     # Retreive supplementary turns (in radians)
@@ -403,13 +408,14 @@ def get_on_charger():
     pitch_threshold += 1 # Add 1 degree to threshold
     print('Pitch threshold: ' + str(pitch_threshold))
 
-    # Let Cozmo first look for the charger once again. The coordinates
-    # tend to be too unprecise if an old coordinates system is kept.
-    if robot.world.charger is not None and robot.world.charger.pose.is_comparable(robot.pose):
-    	robot.world.charger.pose.invalidate()
+    # Drive towards charger
+    go_to_charger()
 
-    # Head towards charger
-    charger = go_to_charger()
+    # Let Cozmo first look for the charger once again. The coordinates
+    # tend to be too unprecise if an old coordinate system is kept.
+    if robot.world.charger is not None and robot.world.charger.pose.is_comparable(robot.pose):
+        robot.world.charger.pose.invalidate()
+    charger = find_charger()
 
     # Adjust position in front of the charger
     final_adjust(charger,critical=True)
