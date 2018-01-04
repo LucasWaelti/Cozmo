@@ -19,5 +19,5 @@ positions of the robot as well as action failures to determine if the current pr
 ## Improvements (TODO)
 - Support already stacked or rolled cubes when cleaning up. 
 - Stack cubes as a pyramid instead of current configuration. 
-- Detect if backup_onto_charger() has succeeded (not possible?). 
+- ~~Detect if backup_onto_charger() has succeeded (not possible?).~~ -> **Solved**
 - Speed up some processes. 
