@@ -460,8 +460,12 @@ def get_on_charger():
 
     # Final backup onto charger's contacts
     robot.set_lift_height(height=0,max_speed=100,in_parallel=True).wait_for_completed()
-    action = robot.backup_onto_charger(max_drive_time=3)
-    print('PROCEDURE SUCCEEDED')
+    robot.backup_onto_charger(max_drive_time=3)
+    if(robot.is_on_charger):
+    	print('PROCEDURE SUCCEEDED')
+    else: 
+    	restart_procedure(charger)
+    	return
 
     # Celebrate success
     robot.drive_off_charger_contacts().wait_for_completed()
@@ -506,12 +510,14 @@ def cozmo_program(cozmo_robot: cozmo.robot.Robot):
     global robot
     init_robot(cozmo_robot)
 
-    # Get off charger
-    robot.drive_straight(distance_mm(110),speed_mmps(80)).wait_for_completed()
+    # Get off charger if on it
+    if(robot.is_on_charger):
+    	robot.drive_off_charger_contacts().wait_for_completed()
+    	robot.drive_straight(distance_mm(110),speed_mmps(80)).wait_for_completed()
 
     execute_procedure()
     return
 
 if __name__ == "__main__":
-    cozmo.robot.Robot.drive_off_charger_on_connect = True
+    cozmo.robot.Robot.drive_off_charger_on_connect = False
     cozmo.run_program(cozmo_program,use_viewer=True,use_3d_viewer=False)
