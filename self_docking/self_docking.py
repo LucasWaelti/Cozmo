@@ -8,8 +8,6 @@
     It is possible that Cozmo does not find a cube or its charger, 
     so it will ask for help if needed. Just place the required object 
     or Cozmo in a position where Cozmo can keep working and let it finish its job!
-    Please note that the program can sometimes produce a false positiv. Cozmo
-    will think it reached the charger's contacts even if it did not reach them. 
 
 	TODO (improvements): 
 	- Support already stacked or rolled cubes when cleaning up. 
