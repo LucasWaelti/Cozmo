@@ -14,7 +14,6 @@
 	TODO (improvements): 
 	- Support already stacked or rolled cubes when cleaning up. 
 	- Stack cubes as a pyramid instead of current configuration. 
-	- Detect if backup_onto_charger() has succeeded (not possible?).
 	- Speed up some processes. 
 '''
 
