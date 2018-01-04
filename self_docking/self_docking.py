@@ -458,7 +458,7 @@ def get_on_charger():
             break
 
     # Final backup onto charger's contacts
-    robot.set_lift_height(height=0,max_speed=100,in_parallel=True).wait_for_completed()
+    robot.set_lift_height(height=0,max_speed=10,in_parallel=True).wait_for_completed()
     robot.backup_onto_charger(max_drive_time=3)
     if(robot.is_on_charger):
     	print('PROCEDURE SUCCEEDED')
