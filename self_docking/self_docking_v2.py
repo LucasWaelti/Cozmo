@@ -8,12 +8,11 @@
     It is possible that Cozmo does not find a cube or its charger, 
     so it will ask for help if needed. Just place the required object 
     or Cozmo in a position where Cozmo can keep working and let it finish its job!
+    
+    This version supports stacked cubes (2 or even 3). 
 
 	TODO (improvements): 
-	- Support already stacked or rolled cubes when cleaning up. 
 	- Stack cubes as a pyramid instead of current configuration. 
-	- Speed up some processes. 
-	- Optimize rotations to gain in precision.
 '''
 
 import cozmo
