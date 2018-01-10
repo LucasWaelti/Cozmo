@@ -3,8 +3,10 @@ This program enables Cozmo to drive off its charger, collect its cubes by placin
 
 You can basically launch the whole procedure from any state. It means you can play a few games with the app and then switch to sdk mode and run the script. Just make sure the setting is not too different from what is described in the following section.
 
+> **Note**: Use the updated version of the controller (v2) for stacked cubes!
+
 ## Optimal Setup When Starting
-Cozmo should be on its charger when starting (but it will work otherwise too). The cubes must not be stacked or rolled and should be located somewhere in front of the charger. 
+Cozmo should be on its charger when starting (but it will work otherwise too). The cubes can now be stacked (2 or 3!) or rolled and should be located somewhere in front of the charger. 
 
 This video demonstrates how things work: 
 
@@ -17,7 +19,7 @@ Different strategies were implemented to detect if Cozmo is succeeding in its ta
 positions of the robot as well as action failures to determine if the current process has to be aborted/restarted or not. 
 
 ## Improvements (TODO)
-- Support already stacked or rolled cubes when cleaning up. 
+- ~~Support already stacked or rolled cubes when cleaning up.~~ -> **Solved with *self_docking_v2***
 - Stack cubes as a pyramid instead of current configuration. 
 - ~~Detect if backup_onto_charger() has succeeded (not possible?).~~ -> **Solved**
 - Speed up some processes. 
