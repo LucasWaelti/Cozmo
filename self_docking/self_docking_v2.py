@@ -1,4 +1,3 @@
-# PATH to the file: C:\Users\Lucas Waelti\Documents\Cozmo\self_docking
 '''
     Written by @Luc, https://forums.anki.com/u/Luc/activity
 
@@ -228,21 +227,18 @@ def knock_cubes_over():
 
     for i in range(0,5):
         # Try to see at least 1 cube
-        print('DEBUG: start looking')
         behavior = robot.start_behavior(cozmo.behavior.BehaviorTypes.LookAroundInPlace)
         try: 
             seen_cube = robot.world.wait_for_observed_light_cube(timeout=10,include_existing=True)
         except:
             seen_cube = None
         behavior.stop()
-        print('DEBUG: stop looking')
         # Try to observe possible stacked cubes
         robot.set_head_angle(degrees(10)).wait_for_completed()
         time.sleep(.5)
         robot.set_head_angle(degrees(30)).wait_for_completed()
         time.sleep(.5)
         robot.set_head_angle(degrees(0)).wait_for_completed()
-        print('DEBUG: looked up')
 
         num_observed_cubes = 0
         if(cube1.pose.is_comparable(robot.pose)):
@@ -254,7 +250,6 @@ def knock_cubes_over():
         
         if(num_observed_cubes == 3):
             # All cubes were observed, check if stacked
-            print('DEBUG: check if knock over')
             ref = []
             ref.append(cube1.pose.position.x)
             ref.append(cube1.pose.position.y)
@@ -263,12 +258,10 @@ def knock_cubes_over():
             delta3 = math.sqrt((ref[0]-cube3.pose.position.x)**2 + (ref[1]-cube3.pose.position.y)**2)
 
             if(delta2 < tol and delta3 < tol):
-                print('DEBUG: knock over')
                 try:
                     behavior = robot.start_behavior(cozmo.behavior.BehaviorTypes.KnockOverCubes)
                     behavior.wait_for_started(timeout=10)
                     behavior.wait_for_completed(timeout=None)
-                    print('DEBUG: knock over done')
                 except asyncio.TimeoutError:
                     print('WARNING: Timeout exception raised from behavior type KnockOverCubes.')
                 except:
